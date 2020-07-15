@@ -1,0 +1,9 @@
+.card
+  .card-body
+    = semantic_form_for product do  |f|
+      - if product.errors.any? 
+        .alert.alert-danger{role: "alert"}
+          Ada kesalahan dalam form ini.
+
+      = f.input :url
+      = f.actions

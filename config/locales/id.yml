@@ -1,0 +1,12 @@
+id:
+  activerecord:
+    attributes:
+      product:
+        url: URL
+  formtastic:
+    hints:
+      product:
+        url: "Alamat/URL dari laman marketplace yang ingin dilacak harganya."
+    actions:
+      product:
+        create: "Pantau Produk Ini"
