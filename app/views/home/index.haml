@@ -1,0 +1,7 @@
+.card
+  .card-body
+    - if Devise.mappings[:user].omniauthable?
+      - User.omniauth_providers.each do |provider|
+        %p
+        = link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(:user, provider)
+

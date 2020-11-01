@@ -3,6 +3,9 @@ id:
     attributes:
       product:
         url: URL
+    errors:
+      messages:
+        ecommerce_not_supported: "URL yang Anda masukkan tidak didukung."
   formtastic:
     hints:
       product:

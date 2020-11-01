@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /products
   # GET /products.json
@@ -24,7 +25,9 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(product_params)
+    @product = Product.new(product_params.merge({original_submitter: current_user}))
+
+    return redirect_to(@product.find_similar) if @product.find_similar
 
     respond_to do |format|
       if @product.save
